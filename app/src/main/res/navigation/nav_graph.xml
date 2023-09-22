@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="edu.timurmakhmutov.forbyte.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_choseModeFragment"
+            app:destination="@id/choseModeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/choseModeFragment"
+        android:name="edu.timurmakhmutov.forbyte.ChoseModeFragment"
+        android:label="fragment_chose_mode"
+        tools:layout="@layout/fragment_chose_mode" >
+        <action
+            android:id="@+id/action_choseModeFragment_to_memorizeTimeZonesFragment2"
+            app:destination="@id/memorizeTimeZonesFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/memorizeTimeZonesFragment2"
+        android:name="edu.timurmakhmutov.forbyte.MemorizeTimeZonesFragment"
+        android:label="fragment_memorize_time_zones"
+        tools:layout="@layout/fragment_memorize_time_zones" >
+        <action
+            android:id="@+id/action_memorizeTimeZonesFragment2_to_chosenModePlayFragment"
+            app:destination="@id/chosenModePlayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chosenModePlayFragment"
+        android:name="edu.timurmakhmutov.forbyte.ChosenModePlayFragment"
+        android:label="fragment_chosen_mode_play"
+        tools:layout="@layout/fragment_chosen_mode_play" >
+        <action
+            android:id="@+id/action_chosenModePlayFragment_to_finishFragment"
+            app:destination="@id/finishFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/finishFragment"
+        android:name="edu.timurmakhmutov.forbyte.FinishFragment"
+        android:label="fragment_finish"
+        tools:layout="@layout/fragment_finish" >
+        <action
+            android:id="@+id/action_finishFragment_to_choseModeFragment"
+            app:destination="@id/choseModeFragment" />
+    </fragment>
+</navigation>
