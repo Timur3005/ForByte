@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/startFragment"
-        android:name="edu.timurmakhmutov.forbyte.StartFragment"
+        android:name="edu.timurmakhmutov.forbyte.presentation.StartFragment"
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/choseModeFragment"
-        android:name="edu.timurmakhmutov.forbyte.ChoseModeFragment"
+        android:name="edu.timurmakhmutov.forbyte.presentation.ChoseModeFragment"
         android:label="fragment_chose_mode"
         tools:layout="@layout/fragment_chose_mode" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/memorizeTimeZonesFragment2"
-        android:name="edu.timurmakhmutov.forbyte.MemorizeTimeZonesFragment"
+        android:name="edu.timurmakhmutov.forbyte.presentation.MemorizeTimeZonesFragment"
         android:label="fragment_memorize_time_zones"
         tools:layout="@layout/fragment_memorize_time_zones" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/chosenModePlayFragment"
-        android:name="edu.timurmakhmutov.forbyte.ChosenModePlayFragment"
+        android:name="edu.timurmakhmutov.forbyte.presentation.ChosenModePlayFragment"
         android:label="fragment_chosen_mode_play"
         tools:layout="@layout/fragment_chosen_mode_play" >
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/finishFragment"
-        android:name="edu.timurmakhmutov.forbyte.FinishFragment"
+        android:name="edu.timurmakhmutov.forbyte.presentation.FinishFragment"
         android:label="fragment_finish"
         tools:layout="@layout/fragment_finish" >
         <action
