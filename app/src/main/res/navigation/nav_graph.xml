@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/memorizeTimeZonesFragment2"
-        android:name="edu.timurmakhmutov.forbyte.presentation.MemorizeTimeZonesFragment"
+        android:name="edu.timurmakhmutov.forbyte.presentation.memorize.MemorizeTimeZonesFragment"
         android:label="fragment_memorize_time_zones"
         tools:layout="@layout/fragment_memorize_time_zones" >
         <action

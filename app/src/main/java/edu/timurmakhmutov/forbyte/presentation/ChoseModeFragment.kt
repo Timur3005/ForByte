@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import edu.timurmakhmutov.forbyte.R
 import edu.timurmakhmutov.forbyte.databinding.FragmentChoseModeBinding
+import edu.timurmakhmutov.forbyte.presentation.memorize.MemorizeTimeZonesFragment
 
 class ChoseModeFragment : Fragment() {
 
