@@ -31,19 +31,15 @@ class ChosenModePlayFragment : Fragment() {
         private const val MODE_TIME = "mode_time"
         private const val MODE_CASUAL = "mode_casual"
 
-        fun newInstanceTimeMode(){
-            ChosenModePlayFragment().apply {
-                arguments = Bundle().apply {
+        fun newInstanceTimeMode(): Bundle{
+            return Bundle().apply {
                     putString(PLAY_MODE, MODE_TIME)
                 }
-            }
         }
 
-        fun newInstanceCasualMode(){
-            ChosenModePlayFragment().apply {
-                arguments = Bundle().apply {
+        fun newInstanceCasualMode(): Bundle{
+            return Bundle().apply {
                     putString(PLAY_MODE, MODE_CASUAL)
-                }
             }
         }
     }
