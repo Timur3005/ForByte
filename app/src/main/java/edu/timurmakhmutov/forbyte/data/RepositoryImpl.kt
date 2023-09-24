@@ -33,6 +33,13 @@ object RepositoryImpl: Repository {
         } ?: throw java.lang.RuntimeException("unknown id $id")
     }
 
+    override fun editItem(watchItem: WatchItem) {
+        val oldItem = getItemById(watchItem.id)
+        watchesList.remove(oldItem)
+        watchesList.add(watchItem)
+        updateLD()
+    }
+
     private fun updateLD(){
         watchesListLD.value = watchesList.toList()
     }

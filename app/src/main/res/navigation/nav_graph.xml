@@ -21,25 +21,28 @@
         tools:layout="@layout/fragment_chose_mode" >
         <action
             android:id="@+id/action_choseModeFragment_to_memorizeTimeZonesFragment2"
-            app:destination="@id/memorizeTimeZonesFragment2" />
+            app:destination="@id/memorizeTimeZonesFragment" />
     </fragment>
     <fragment
-        android:id="@+id/memorizeTimeZonesFragment2"
+        android:id="@+id/memorizeTimeZonesFragment"
         android:name="edu.timurmakhmutov.forbyte.presentation.memorize.MemorizeTimeZonesFragment"
         android:label="fragment_memorize_time_zones"
         tools:layout="@layout/fragment_memorize_time_zones" >
         <action
-            android:id="@+id/action_memorizeTimeZonesFragment2_to_chosenModePlayFragment"
+            android:id="@+id/action_memorizeTimeZonesFragment_to_chosenModePlayFragment"
             app:destination="@id/chosenModePlayFragment" />
     </fragment>
     <fragment
         android:id="@+id/chosenModePlayFragment"
-        android:name="edu.timurmakhmutov.forbyte.presentation.ChosenModePlayFragment"
+        android:name="edu.timurmakhmutov.forbyte.presentation.play.ChosenModePlayFragment"
         android:label="fragment_chosen_mode_play"
         tools:layout="@layout/fragment_chosen_mode_play" >
         <action
             android:id="@+id/action_chosenModePlayFragment_to_finishFragment"
             app:destination="@id/finishFragment" />
+        <action
+            android:id="@+id/action_chosenModePlayFragment_to_oneWatchFragment"
+            app:destination="@id/oneWatchFragment" />
     </fragment>
     <fragment
         android:id="@+id/finishFragment"
@@ -50,4 +53,9 @@
             android:id="@+id/action_finishFragment_to_choseModeFragment"
             app:destination="@id/choseModeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/oneWatchFragment"
+        android:name="edu.timurmakhmutov.forbyte.OneWatchFragment"
+        android:label="fragment_one_watch"
+        tools:layout="@layout/fragment_one_watch" />
 </navigation>

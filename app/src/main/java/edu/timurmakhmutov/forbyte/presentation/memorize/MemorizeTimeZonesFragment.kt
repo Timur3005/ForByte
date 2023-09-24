@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import edu.timurmakhmutov.forbyte.R
 import edu.timurmakhmutov.forbyte.databinding.FragmentMemorizeTimeZonesBinding
-import edu.timurmakhmutov.forbyte.presentation.ChosenModePlayFragment
+import edu.timurmakhmutov.forbyte.presentation.play.ChosenModePlayFragment
 import edu.timurmakhmutov.forbyte.presentation.adapter.WatchItemsAdapter
 
 class MemorizeTimeZonesFragment : Fragment() {
@@ -52,23 +52,29 @@ class MemorizeTimeZonesFragment : Fragment() {
     }
 
     private fun modeCompleting(){
-        if (mode == MODE_TIME){
-            currentBundle = ChosenModePlayFragment.newInstanceTimeMode()
-            val timer = object : CountDownTimer(PLAY_AND_MEMORIZING_TIME, 1000){
-                override fun onTick(p0: Long) {
-                    binding.tvTimer.text = (p0/1000).toString()
-                }
+        when (mode) {
+            MODE_TIME -> {
+                currentBundle = ChosenModePlayFragment.newInstanceTimeMode()
+                val timer = object : CountDownTimer(PLAY_AND_MEMORIZING_TIME, 1000){
+                    override fun onTick(p0: Long) {
+                        binding.tvTimer.text = (p0/1000).toString()
+                    }
 
-                override fun onFinish() {
-                    navigateToPlayFragment()
+                    override fun onFinish() {
+                        if (isAdded) {
+                            navigateToPlayFragment()
+                        }
+                    }
                 }
+                timer.start()
             }
-            timer.start()
+            MODE_CASUAL -> {
+                currentBundle = ChosenModePlayFragment.newInstanceCasualMode()
+            }
+            else -> {
+                throw java.lang.RuntimeException("unknown mode")
+            }
         }
-        else{
-            currentBundle = ChosenModePlayFragment.newInstanceCasualMode()
-        }
-
     }
 
     private fun recyclerUpdate() {
@@ -90,7 +96,7 @@ class MemorizeTimeZonesFragment : Fragment() {
     }
 
     private fun navigateToPlayFragment() {
-        findNavController().navigate(R.id.action_memorizeTimeZonesFragment2_to_chosenModePlayFragment, currentBundle)
+        findNavController().navigate(R.id.action_memorizeTimeZonesFragment_to_chosenModePlayFragment, currentBundle)
     }
 
     companion object{
@@ -100,17 +106,12 @@ class MemorizeTimeZonesFragment : Fragment() {
         private const val MODE_TIME = "mode_time"
         private const val MODE_CASUAL = "mode_casual"
 
-        fun newInstanceTimeMode(): Bundle{
-            return Bundle().apply {
-                    putString(PLAY_MODE, MODE_TIME)
-            }
-
+        fun newInstanceTimeMode() = Bundle().apply {
+            putString(PLAY_MODE, MODE_TIME)
         }
 
-        fun newInstanceCasualMode(): Bundle{
-            return Bundle().apply {
+        fun newInstanceCasualMode() = Bundle().apply {
                     putString(PLAY_MODE, MODE_CASUAL)
-            }
         }
     }
 }
