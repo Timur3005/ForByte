@@ -55,7 +55,11 @@
     </fragment>
     <fragment
         android:id="@+id/oneWatchFragment"
-        android:name="edu.timurmakhmutov.forbyte.OneWatchFragment"
+        android:name="edu.timurmakhmutov.forbyte.presentation.onewatch.OneWatchFragment"
         android:label="fragment_one_watch"
-        tools:layout="@layout/fragment_one_watch" />
+        tools:layout="@layout/fragment_one_watch" >
+        <action
+            android:id="@+id/action_oneWatchFragment_to_finishFragment"
+            app:destination="@id/finishFragment" />
+    </fragment>
 </navigation>

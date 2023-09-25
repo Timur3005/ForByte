@@ -2,18 +2,18 @@ package edu.timurmakhmutov.forbyte.presentation.play
 
 import android.os.Bundle
 import android.os.CountDownTimer
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import edu.timurmakhmutov.forbyte.OneWatchFragment.Companion.newInstanceDefault
 import edu.timurmakhmutov.forbyte.R
 import edu.timurmakhmutov.forbyte.databinding.FragmentChosenModePlayBinding
 import edu.timurmakhmutov.forbyte.presentation.adapter.WatchItemsAdapter
 import edu.timurmakhmutov.forbyte.presentation.memorize.MemorizeTimeZonesFragment
+import edu.timurmakhmutov.forbyte.presentation.onewatch.OneWatchFragment
 
 class ChosenModePlayFragment : Fragment() {
 
@@ -21,6 +21,7 @@ class ChosenModePlayFragment : Fragment() {
     private lateinit var viewModel: PlayViewModel
     private lateinit var mode: String
     private lateinit var watchItemsAdapter: WatchItemsAdapter
+    private lateinit var timerVM: TimerViewModel
     private var isStart: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,12 +40,23 @@ class ChosenModePlayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[PlayViewModel::class.java]
+        timerVM = ViewModelProvider(this)[TimerViewModel::class.java]
         recyclerInit()
         settingClickListener()
         recyclerUpdate()
         modeTime()
         clickToFinish()
+        observeTimeValue()
         isStart = true
+    }
+
+    private fun observeTimeValue(){
+        timerVM.timerValue.observe(viewLifecycleOwner){
+            binding.tvTimer.text = it.toString()
+            if (it == 0L){
+                navigateToFinish()
+            }
+        }
     }
 
     private fun modeTime(){
@@ -52,14 +64,13 @@ class ChosenModePlayFragment : Fragment() {
             val timer =
                 object : CountDownTimer(MemorizeTimeZonesFragment.PLAY_AND_MEMORIZING_TIME, 1000) {
                     override fun onTick(p0: Long) {
-                        binding.tvTimer.text = (p0 / 1000).toString()
+                        timerVM.timerValue.value = (p0 / 1000)
                     }
 
                     override fun onFinish() {
-                        binding.tvTimer.visibility = View.INVISIBLE
-                        if (isAdded) {
-                            navigateToFinish()
-                        }
+//                        if (isAdded) {
+//                            navigateToFinish()
+//                        }
                     }
                 }
             timer.start()
@@ -86,8 +97,12 @@ class ChosenModePlayFragment : Fragment() {
 
     private fun settingClickListener(){
         watchItemsAdapter.watchClickListener = {
-            val bundle = newInstanceDefault(it.id)
-            navigateToOneWatchFragment(bundle)
+            if (mode == MODE_TIME) {
+                navigateToOneWatchFragment(OneWatchFragment.newInstanceTimeMode(it.id))
+            }
+            else if (mode == MODE_CASUAL){
+                navigateToOneWatchFragment(OneWatchFragment.newInstanceCasualMode(it.id))
+            }
         }
     }
 
