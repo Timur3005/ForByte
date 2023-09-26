@@ -7,6 +7,9 @@
     tools:context=".presentation.finish.FinishFragment">
 
     <TextView
+        android:textColor="@color/white"
+        android:textAllCaps="true"
+        android:textSize="50sp"
         android:id="@+id/tv_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,9 +21,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        style="@style/ButtonWithGradient"
         android:id="@+id/btn_restart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
         android:text="@string/restart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

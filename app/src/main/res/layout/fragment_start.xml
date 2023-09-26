@@ -6,10 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".presentation.StartFragment">
 
-    <Button
-        android:id="@+id/button_play"
-        android:layout_width="wrap_content"
+    <TextView
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="82dp"
+        android:text="@string/match_the_time_zone_with_the_city"
+        android:textAllCaps="true"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:text="@string/start"
+        android:id="@+id/button_play"
+        style="@style/ButtonWithGradient"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="68dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

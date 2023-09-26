@@ -9,4 +9,7 @@
     <string name="finish">Finish</string>
     <string name="answer">Answer</string>
     <string name="restart">Restart</string>
+    <string name="start">Start</string>
+    <string name="remember">Remember!</string>
+    <string name="match_the_time_zone_with_the_city">match the time zone with the city</string>
 </resources>
