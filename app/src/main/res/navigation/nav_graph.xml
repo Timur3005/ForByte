@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/finishFragment"
-        android:name="edu.timurmakhmutov.forbyte.presentation.FinishFragment"
+        android:name="edu.timurmakhmutov.forbyte.presentation.finish.FinishFragment"
         android:label="fragment_finish"
         tools:layout="@layout/fragment_finish" >
         <action

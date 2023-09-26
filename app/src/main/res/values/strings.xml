@@ -7,4 +7,6 @@
     <string name="play">Play</string>
     <string name="city">City</string>
     <string name="finish">Finish</string>
+    <string name="answer">Answer</string>
+    <string name="restart">Restart</string>
 </resources>

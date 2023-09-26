@@ -21,13 +21,18 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/btn_navigate_to_finish_fragment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
 
     <Button
         android:id="@+id/btn_navigate_to_finish_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/finish"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="68dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

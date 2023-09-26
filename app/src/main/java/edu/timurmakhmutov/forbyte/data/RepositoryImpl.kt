@@ -40,6 +40,13 @@ object RepositoryImpl: Repository {
         updateLD()
     }
 
+    override fun cleanAllAnswersUseCase() {
+        for (i in watchesList){
+            i.inputCity = null
+        }
+        updateLD()
+    }
+
     private fun updateLD(){
         watchesListLD.value = watchesList.toList()
     }

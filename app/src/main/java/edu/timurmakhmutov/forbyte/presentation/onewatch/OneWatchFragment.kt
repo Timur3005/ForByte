@@ -29,6 +29,7 @@ class OneWatchFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentOneWatchBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
@@ -36,9 +37,25 @@ class OneWatchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         timerVM = ViewModelProvider(this)[TimerViewModel::class.java]
         oneWatchViewModel = ViewModelProvider(this)[OneWatchViewModel::class.java]
-        oneWatchViewModel.getWatchItemById(watchId)
+//        workWithMode()
+        gettingItem()
         settingDataInView()
-        workWithMode()
+        answerClickListener()
+    }
+
+    private fun gettingItem() {
+        if (watchId != UNKNOWN_ID) {
+            oneWatchViewModel.getWatchItemById(watchId)
+        } else {
+            throw RuntimeException("unknown id")
+        }
+    }
+
+    private fun answerClickListener(){
+        binding.btnAnswer.setOnClickListener {
+            oneWatchViewModel.answerToQuestion(binding.etWatchItem.text?.toString())
+            activity?.onBackPressed()
+        }
     }
 
     private fun gettingArgs() {
@@ -59,6 +76,7 @@ class OneWatchFragment : Fragment() {
     private fun workWithMode(){
         if (mode == MODE_TIME){
             timerVM.timerValue.observe(viewLifecycleOwner){
+                binding.tvTimer.text = it.toString()
                 if (it == 0L){
                     findNavController().navigate(R.id.action_oneWatchFragment_to_finishFragment)
                 }
