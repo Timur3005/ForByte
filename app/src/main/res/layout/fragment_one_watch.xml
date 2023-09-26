@@ -34,8 +34,9 @@
         app:layout_constraintGuide_percent="0.85"/>
 
     <EditText
+        style="@style/EditTextWhite"
         android:hint="@string/city"
-        android:textSize="40sp"
+        android:gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="33dp"
